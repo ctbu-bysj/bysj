@@ -1,9 +1,12 @@
 package com.ctbu.schoolofai.btsjmanager.director.controller;
 
 import com.ctbu.schoolofai.btsjmanager.director.service.TopicAuditService;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.TopicDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import java.util.List;
 
 
 @Controller
@@ -14,8 +17,8 @@ public class TopicAuditController {
 
     public String list(Model model){
 
-        //通过id查找需要审核的题目
-        TopicDo topicDos=topicAuditService.findById(id);
+        //返回所以的出题信息
+        List<TopicDo> topicDos=topicAuditService.findAll();
 
         model.addAttribute("data",topicDos);
 

@@ -1,8 +1,11 @@
 package com.ctbu.schoolofai.btsjmanager.director.service;
 
+import com.ctbu.schoolofai.btsjmanager.director.dao.TopicAuditDao;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.TopicDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 /**
@@ -15,6 +18,10 @@ public class TopicAuditService {
     @Autowired
     TopicAuditDao topicAuditDao;
 
+    public List<TopicDo> findAll(){
+        return topicAuditDao.findAll();
+    }
+
     /**
      * 更新表中的审核状态和审核意见
      * @param topicDo
@@ -26,12 +33,12 @@ public class TopicAuditService {
     }
 
     /**
-     * 通过id查询题目信息，修改审核状态的时候使用
-     * @param id
+     * 通过审核情况查询选题信息，修改审核状态的时候使用
+     * @param state
      * @return
      */
-    public TopicDo findById(String id){
+    public List<TopicDo> findByState(Short state){
 
-        return topicAuditDao.findById(id).orElse(null);
+        return topicAuditDao.findByState(state);
     }
 }

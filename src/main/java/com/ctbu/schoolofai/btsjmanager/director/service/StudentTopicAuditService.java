@@ -1,7 +1,6 @@
 package com.ctbu.schoolofai.btsjmanager.director.service;
 
 import com.ctbu.schoolofai.btsjmanager.director.dao.StudentTopicAuditDao;
-import com.ctbu.schoolofai.btsjmanager.publicTable.domain.StudentTopicDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

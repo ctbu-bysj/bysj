@@ -74,4 +74,15 @@ public class Teacher
     @Column(name = "qq",length = 20)
     private String qq;
 
+    /**
+     * 教师所属小组
+     */
+    @ManyToOne
+    @JoinColumn(name = "groupt_id")
+    private  Group group;
+    /**
+     * 教师在小组中的身份
+     */
+    private  String  groupIdentity;
+
 }

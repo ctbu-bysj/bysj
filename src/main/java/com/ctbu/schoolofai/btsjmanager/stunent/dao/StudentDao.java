@@ -1,8 +1,9 @@
 package com.ctbu.schoolofai.btsjmanager.stunent.dao;
 
-import com.ctbu.schoolofai.btsjmanager.stunent.domain.Student;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
+
 
 public interface StudentDao extends JpaRepository<Student,Long> {
 

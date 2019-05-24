@@ -80,5 +80,11 @@ public class Topic
      */
     @Column(name = "period")
     private  String period;
+    /**
+     * 题目类型
+     */
+    private  String topicType;
+
+
 
 }

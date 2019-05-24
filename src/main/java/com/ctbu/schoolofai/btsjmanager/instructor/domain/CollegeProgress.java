@@ -40,9 +40,8 @@ public class CollegeProgress
     private Date endDate;
 
     /**
-     * 状态
+     * 状态 值为： 未开始  正在进行中  已经结束
      */
     @Column(name = "status")
     private String status;
-
 }

@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -20,16 +22,18 @@ public class StudentController {
     private TopicService topicService;
 
 
-    @RequestMapping("/selectTopic")
-    public  String selectTopic(@PathVariable("id") Long id, Model model){
+    @RequestMapping("/selectTopic/{id}")
+    public  String selectTopic(@PathVariable("id") Long id, Model model, HttpServletRequest request){
 
        Topic topic= topicService.findTopicById(id);
         topic.setState("true");
         topicService.update(topic);
 
-        HttpSession session;
-        Student student =session.getAttribute("");
 
+        HttpSession session= request.getSession();
+        Student student =(Student) session.getAttribute("loginStudent");
+        student.setTopic(topic);
+        studentService.update(student);
         return "";
 
     }

@@ -8,5 +8,7 @@ public interface OpingReportService {
      * @param opeingReport
      * @return
      */
-    public  String save(OpeingReport opeingReport);
+     String save(OpeingReport opeingReport);
+
+    OpeingReport  findByStudentId(String id);
 }

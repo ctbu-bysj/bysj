@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.stunent.service;
 
-import com.ctbu.schoolofai.btsjmanager.stunent.domain.Student;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
+
 
 public interface StudentService {
     /**
@@ -8,7 +9,14 @@ public interface StudentService {
      * @param student
      * @return
      */
-    public String update(Student student);
+    String update(Student student);
+
+    /**
+     * 通过id查询学生
+     * @param id
+     * @return
+     */
+    Student findById(String id);
 
 
 }

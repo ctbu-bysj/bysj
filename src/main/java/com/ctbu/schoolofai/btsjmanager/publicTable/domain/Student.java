@@ -13,7 +13,7 @@ public class Student {
       */
       @Id
       @GeneratedValue(strategy = GenerationType.AUTO)
-     private  long studentId;
+     private  String studentId;
      /**
       * 登录名
       */

@@ -2,10 +2,7 @@ package com.ctbu.schoolofai.btsjmanager.publicTable.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity(name = "openingReport")
@@ -14,7 +11,7 @@ public class OpeingReport
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long  openingId;
+    private  String openingId;
     private  String  topicBasis;//立题依据
     private  String  researchContent;//研究主要内容
     private  String  DevelopmentTechnology;//开发技术
@@ -26,6 +23,11 @@ public class OpeingReport
      * 检查意见
      */
     private  String  opinion;
+    /**
+     * 学生id
+     */
+    @OneToOne(fetch = FetchType.EAGER)
+    private Student student;
 
 
 }

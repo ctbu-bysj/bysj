@@ -30,6 +30,12 @@ public class Student {
       * 性别
       */
      private  String gender;
+
+     /**
+      * 专业
+      */
+     private String major;
+
      /**
       * 班级
       */

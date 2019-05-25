@@ -21,5 +21,10 @@ public class OpeingReport {
     private  String  ResearchMethodsAndExperimentalConditions;//研究方法与实验条件
     private  String  ProjectPlanningAndScheduling;//项目计划与进度安排
     private  String  MajorReferences;//主要参考文献
+    /**
+     * 检查意见
+     */
+    private  String  opinion;
+
 
 }

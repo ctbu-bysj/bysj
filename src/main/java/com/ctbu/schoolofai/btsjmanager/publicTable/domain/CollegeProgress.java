@@ -44,4 +44,9 @@ public class CollegeProgress
      */
     @Column(name = "status")
     private String status;
+    /**
+     *阶段描述
+     */
+
+    private String describe;
 }

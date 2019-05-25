@@ -84,7 +84,28 @@ public class Topic
      * 题目类型
      */
     private  String topicType;
+    /**
+     * 选题专业
+     */
+    private  String choiceProfessional;
 
+    /**
+     * 科研相关项目
+     */
+    private  String scientificResearch;
 
+    /**
+     * 选题模式
+     */
+    private  String model;
+
+    /**
+     * 技术路线
+     */
+    private  String technicalRoute;
+    /**
+     * 预期成果
+     */
+    private  String expected;
 
 }

@@ -80,6 +80,7 @@ public class Teacher
     @ManyToOne
     @JoinColumn(name = "groupt_id")
     private  Group group;
+
     /**
      * 教师在小组中的身份
      */

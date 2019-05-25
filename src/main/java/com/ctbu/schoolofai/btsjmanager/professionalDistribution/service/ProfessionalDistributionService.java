@@ -1,6 +1,6 @@
-package com.ctbu.schoolofai.btsjmanager.director.service;
+package com.ctbu.schoolofai.btsjmanager.professionalDistribution.service;
 
-import com.ctbu.schoolofai.btsjmanager.director.dao.ProfessionalDistributionDao;
+import com.ctbu.schoolofai.btsjmanager.professionalDistribution.dao.ProfessionalDistributionDao;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.ProfessionalDistribution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

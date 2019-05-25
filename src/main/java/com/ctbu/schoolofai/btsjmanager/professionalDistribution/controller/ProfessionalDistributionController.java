@@ -1,6 +1,6 @@
-package com.ctbu.schoolofai.btsjmanager.director.controller;
+package com.ctbu.schoolofai.btsjmanager.professionalDistribution.controller;
 
-import com.ctbu.schoolofai.btsjmanager.director.service.ProfessionalDistributionService;
+import com.ctbu.schoolofai.btsjmanager.professionalDistribution.service.ProfessionalDistributionService;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.ProfessionalDistribution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

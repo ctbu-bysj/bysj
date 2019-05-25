@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.director.service;
 
 import com.ctbu.schoolofai.btsjmanager.director.dao.TopicAuditDao;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class TopicAuditService {
     @Autowired
     TopicAuditDao topicAuditDao;
 
-    public List<TopicDo> findAll(){
+    public List<Topic> findAll(){
         return topicAuditDao.findAll();
     }
 
@@ -26,7 +27,7 @@ public class TopicAuditService {
      * @param topicDo
      * @return
      */
-    public TopicDo update (TopicDo topicDo){
+    public Topic update (Topic topicDo){
 
         return topicAuditDao.save(topicDo);
     }
@@ -36,7 +37,7 @@ public class TopicAuditService {
      * @param state
      * @return
      */
-    public List<TopicDo> findByState(Short state){
+    public List<Topic> findByState(Short state){
 
         return topicAuditDao.findByState(state);
     }

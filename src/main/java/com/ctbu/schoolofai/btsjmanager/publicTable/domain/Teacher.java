@@ -85,4 +85,10 @@ public class Teacher
      */
     private  String  groupIdentity;
 
+    /**
+     * 外键，获取教师需要出题的数量
+     */
+    @OneToOne
+    @JoinColumn(name = "professionalDistribution_id")
+    private  ProfessionalDistribution professionalDistribution;
 }

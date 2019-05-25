@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.director.service;
 
 import com.ctbu.schoolofai.btsjmanager.director.dao.StudentTopicAuditDao;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class StudentTopicAuditService {
      * 所有学生选题信息
      * @return
      */
-    public List<StudentTopicDo> findAll(){
+    public List<Student> findAll(){
         return studentTopicAuditDao.findAll();
     }
 
@@ -29,7 +30,7 @@ public class StudentTopicAuditService {
      * @param studentTopicDo
      * @return
      */
-    public StudentTopicDo update (StudentTopicDo studentTopicDo){
+    public Student update (Student studentTopicDo){
 
         return studentTopicAuditDao.save(studentTopicDo);
     }
@@ -39,7 +40,7 @@ public class StudentTopicAuditService {
      * @param state
      * @return
      */
-    public List<StudentTopicDo> findByState(Short state){
+    public List<Student> findByState(Short state){
 
         return studentTopicAuditDao.findByState(state);
     }

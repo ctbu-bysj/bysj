@@ -1,6 +1,6 @@
 package com.ctbu.schoolofai.btsjmanager.openingReport.service;
 
-import com.ctbu.schoolofai.btsjmanager.openingReport.domain.OpeingReport;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.OpeingReport;
 
 public interface OpingReportService {
     /**

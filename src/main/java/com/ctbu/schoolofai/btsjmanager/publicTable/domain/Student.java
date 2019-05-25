@@ -1,7 +1,6 @@
 package com.ctbu.schoolofai.btsjmanager.publicTable.domain;
 
 
-import com.ctbu.schoolofai.btsjmanager.graduationTopic.domain.Topic;
 import lombok.Data;
 
 import javax.persistence.*;

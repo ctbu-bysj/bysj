@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "midCheck")
+@Table(name = "firstDraft")
 public class FirstDraft {
     /**
      * ID

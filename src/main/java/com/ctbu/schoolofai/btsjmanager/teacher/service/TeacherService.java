@@ -1,7 +1,8 @@
 package com.ctbu.schoolofai.btsjmanager.teacher.service;
 
-import com.ctbu.schoolofai.btsjmanager.instructor.dao.TeacherDao;
-import com.ctbu.schoolofai.btsjmanager.instructor.domain.Teacher;
+
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
+import com.ctbu.schoolofai.btsjmanager.teacher.dao.TeacherDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -86,4 +87,14 @@ public class TeacherService
     {
         return teacherDao.updataPassword(password,id);
     }
+
+    /**
+     * 通过id查询教师
+     * @param id
+     * @return
+     */
+   public Teacher findById(String id){
+        return teacherDao.getOne(id);
+   }
+
 }

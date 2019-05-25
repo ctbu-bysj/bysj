@@ -74,6 +74,7 @@ public class Student {
      @JoinColumn(name = "grade_id", referencedColumnName = "gradeId")//people中的address_id字段参考address表中的id字段
      private Grade grade;//地址
 
-
-
+     @OneToOne(cascade=CascadeType.ALL)//People是关系的维护端，当删除 people，会级联删除 address
+     @JoinColumn(name = "firstDraft_id", referencedColumnName = "firstDraftId")//people中的address_id字段参考address表中的id字段
+     private FirstDraft firstDraft;//地址
 }

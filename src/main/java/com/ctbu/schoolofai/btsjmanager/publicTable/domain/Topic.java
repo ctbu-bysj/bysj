@@ -107,5 +107,9 @@ public class Topic
      * 预期成果
      */
     private  String expected;
+    /**
+     * 题目状态
+     */
+    private  String state;
 
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 /**
- * 成绩表
+ * 中期检查表
  */
 @Data
 @Entity

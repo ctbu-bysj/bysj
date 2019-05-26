@@ -59,6 +59,7 @@ public class CollegeProgressService
      */
     public List<CollegeProgress> findAll()
     {
+        confirmationStatus();
         return collegeProgressDao.findAll();
     }
 

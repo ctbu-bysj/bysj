@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.teacher.dao;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -69,6 +70,4 @@ public interface TeacherDao extends JpaRepository<Teacher,String>
     @Modifying
     @Query(value = "update Teacher t set t.password = :password where t.id =:id")
     public int updataPassword(@Param("password") String password, @Param("id") String id);
-
-
 }

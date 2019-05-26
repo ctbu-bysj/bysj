@@ -20,7 +20,7 @@ public class Topic
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Id	;
+    private String Id;
 
     /**
      * 题目
@@ -34,9 +34,9 @@ public class Topic
     private String detailed	;
 
     /**
-     * 出题教师   外键
+     * 出题教师 (教师登录名/工号)
      */
-    private String	creator	;
+    private String creator;
 
     /**
      * 创建时间
@@ -107,8 +107,9 @@ public class Topic
      * 预期成果
      */
     private  String expected;
+
     /**
-     * 题目状态
+     * 题目提交状态   1.未提交  2.已提交
      */
     private  String state;
 

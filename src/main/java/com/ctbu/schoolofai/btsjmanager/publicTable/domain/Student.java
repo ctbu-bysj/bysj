@@ -7,7 +7,8 @@ import javax.persistence.*;
 
 @Data
 @Entity(name = "student")
-public class Student {
+public class Student
+{
      /**
       * id
       */
@@ -46,6 +47,12 @@ public class Student {
      @ManyToOne
      @JoinColumn(name = "topic_topic_id")
      private Topic topic;
+
+     /**
+      * 教师确定状态  0.未选题  1.未确认   2.已确认
+      */
+     @Column(name = "teacher_determines_status")
+     private String teacherDeterminesStatus;
 
      /**
       * 登录次数

@@ -39,5 +39,12 @@ public class MidCheck {
      * 检查意见
      */
     private  String   CheckOpinion;
-
+    /**
+     * 中期检查提交论文地址
+     */
+    private  String   paperPath;
+    /**
+     * 中期检查代码地址
+     */
+   private  String   codePath;
 }

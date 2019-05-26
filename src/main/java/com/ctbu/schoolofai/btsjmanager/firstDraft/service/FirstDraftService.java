@@ -10,4 +10,11 @@ public interface FirstDraftService {
      * @return
      */
    FirstDraft save(FirstDraft firstDraft);
+
+    /**
+     * 通过id查找
+     * @param id
+     * @return
+     */
+   FirstDraft findById(String id);
 }

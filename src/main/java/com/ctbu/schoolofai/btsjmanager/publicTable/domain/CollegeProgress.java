@@ -49,4 +49,10 @@ public class CollegeProgress
      */
 
     private String describe;
+    /**
+     * 毕业设计工作基本信息
+     */
+    @ManyToOne
+    @JoinColumn(name = "basicInformation_id")
+    private  BasicInformation basicInformation;
 }

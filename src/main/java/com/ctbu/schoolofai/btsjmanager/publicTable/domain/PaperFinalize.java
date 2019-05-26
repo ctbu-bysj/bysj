@@ -5,19 +5,19 @@ import lombok.Data;
 import javax.persistence.*;
 
 /**
- * 论文初稿
+ * 一次答辩论文定稿
  */
 @Data
 @Entity
-@Table(name = "firstDraft")
-public class FirstDraft {
+@Table(name = "paperFinalize")
+public class PaperFinalize {
     /**
      * ID
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private  String firstDraftId;
+    private  String paperFinalizeId;
     /**
      * 论文地址
      */

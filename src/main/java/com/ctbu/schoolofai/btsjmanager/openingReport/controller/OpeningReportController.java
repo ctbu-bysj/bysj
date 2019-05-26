@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class OpeningReportController {
@@ -33,6 +35,24 @@ public class OpeningReportController {
 
     @Autowired
     private TeacherService teacherService;
+
+    /**
+     * 开题报告list
+     * @param request
+     * @param model
+     * @return
+     */
+    @RequestMapping("/openList")
+    public  String   openList(HttpServletRequest request, Model model){
+        HttpSession session= request.getSession();
+        Student student =(Student) session.getAttribute("loginStudent");
+        Topic topic=topicService.findTopicById(student.getTopic().getId());
+        Teacher teacher=teacherService.findById(topic.getCreator());
+        model.addAttribute("teacher",teacher);
+        model.addAttribute("topic",topic);
+        model.addAttribute("student",student);
+        return "";
+    }
 
     /**
      * 保存开题报告

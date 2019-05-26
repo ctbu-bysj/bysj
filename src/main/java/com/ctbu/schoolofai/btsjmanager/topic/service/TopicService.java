@@ -21,6 +21,10 @@ public class TopicService {
 
     }
 
+    /**
+     * 更新选题
+     * @param topic
+     */
    public void update(Topic topic){
         topicDao.save(topic);
     }

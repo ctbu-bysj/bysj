@@ -14,4 +14,9 @@ public class FirstDraftServiceImpl implements FirstDraftService {
     public FirstDraft save(FirstDraft firstDraft) {
         return  firstDraftDao.save(firstDraft);
     }
+
+    @Override
+    public FirstDraft findById(String id) {
+        return firstDraftDao.getOne(id);
+    }
 }

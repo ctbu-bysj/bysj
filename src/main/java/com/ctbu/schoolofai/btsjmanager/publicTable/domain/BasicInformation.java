@@ -3,7 +3,12 @@ package com.ctbu.schoolofai.btsjmanager.publicTable.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * 毕业设计工作表
+ */
 @Data
 @Entity
 @Table(name = "basicIn")
@@ -32,5 +37,15 @@ public class BasicInformation {
      * 论文查重修改标准
      */
     private String paperReviewStandards;
+    /**
+     * 毕业设计工作阶段是否创建
+     */
+    private boolean collegePro;
+
+    /**
+     * 小组中的学生
+     */
+    @OneToMany(mappedBy = "basicInformation")
+    private Set<CollegeProgress> students=new HashSet<CollegeProgress>();
 
 }

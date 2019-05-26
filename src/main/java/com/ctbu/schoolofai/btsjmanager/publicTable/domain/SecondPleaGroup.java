@@ -7,10 +7,13 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 二次答辩小组
+ */
 @Data
 @Entity
 @Table(name = "group")
-public class Group {
+public class SecondPleaGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String groupId;
@@ -34,12 +37,12 @@ public class Group {
     /**
      * 小组中的学生
      */
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "secondPleaGroup")
     private Set<Student> students=new HashSet<Student>();
 
     /**
      * 小组中的老师
      */
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "secondPleaGroup")
     private Set<Teacher> teachers=new HashSet<Teacher>();
 }

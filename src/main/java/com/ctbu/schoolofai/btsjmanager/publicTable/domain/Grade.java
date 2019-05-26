@@ -47,6 +47,14 @@ public class Grade {
     private  String firstDraftOpinion;
 
 
+    /**
+     * 一次答辩定稿成绩
+     */
+    private String paperFinalizeGrade;
+    /**
+     * 一次答辩定稿意见
+     */
+    private  String paperFinalizeOpinion;
 
     /**
      * 一次答辩成绩

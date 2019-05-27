@@ -5,6 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 课题表
@@ -111,5 +113,7 @@ public class Topic
      * 题目状态
      */
     private  String state;
+    @OneToMany(mappedBy = "topic")
+    private Set<Student> students=new HashSet<Student>();
 
 }

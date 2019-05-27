@@ -1,6 +1,9 @@
 package com.ctbu.schoolofai.btsjmanager.stunent.service;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
+
+import java.util.List;
 
 
 public interface StudentService {
@@ -17,6 +20,19 @@ public interface StudentService {
      * @return
      */
     Student findById(String id);
+
+    /**
+     * 通过选题查找
+     * @param topic
+     * @return
+     */
+    List<Student>  findByTopic(Topic topic);
+
+    /**
+     * 查找所有
+     * @return
+     */
+    List<Student>  findAll();
 
 
 }

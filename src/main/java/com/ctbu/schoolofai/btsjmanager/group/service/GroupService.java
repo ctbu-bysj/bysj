@@ -16,4 +16,12 @@ public class GroupService {
         return  groupDao.getOne(id);
     }
 
+    /**
+     * 添加小组
+     * @param group
+     * @return
+     */
+   public  Group save(Group group){
+        return groupDao.save(group);
+   }
 }

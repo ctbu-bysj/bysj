@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.openingReport.service;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.OpeingReport;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 
 public interface OpingReportService {
     /**
@@ -11,4 +12,11 @@ public interface OpingReportService {
      String save(OpeingReport opeingReport);
 
     OpeingReport  findByStudentId(String id);
+
+    /**
+     * 通过学生查找
+     * @param student
+     * @return
+     */
+    OpeingReport  findByStudent(Student student);
 }

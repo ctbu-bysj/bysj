@@ -35,6 +35,11 @@ public class DistributionCollege {
      */
     private String  allocatedQuantity;
     /**
+     * 已出题目数量
+     */
+    private String  topicQuantity;
+
+    /**
      * 毕业生数量
      */
     private String  numberGraduates;

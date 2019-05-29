@@ -3,6 +3,8 @@ package com.ctbu.schoolofai.btsjmanager.publicTable.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 教师表（教师基本信息）
@@ -92,4 +94,15 @@ public class Teacher
     @OneToOne
     @JoinColumn(name = "professionalDistribution_id")
     private  ProfessionalDistribution professionalDistribution;
+    /**
+     * 系统身份
+     */
+    private  String systemStatus;
+    /**
+     * 角色
+     */
+    @ManyToMany(cascade=CascadeType.REFRESH)
+    @JoinTable(name="teacher_role",inverseJoinColumns=@JoinColumn(name="role_id"),
+            joinColumns=@JoinColumn(name="teacher_id"))
+    private Set<Role> roles=new HashSet<Role>();
 }

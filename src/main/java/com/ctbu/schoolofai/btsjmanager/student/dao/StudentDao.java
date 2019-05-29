@@ -1,4 +1,4 @@
-package com.ctbu.schoolofai.btsjmanager.stunent.dao;
+package com.ctbu.schoolofai.btsjmanager.student.dao;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 

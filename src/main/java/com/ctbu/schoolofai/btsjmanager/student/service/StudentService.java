@@ -1,4 +1,4 @@
-package com.ctbu.schoolofai.btsjmanager.stunent.service;
+package com.ctbu.schoolofai.btsjmanager.student.service;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
@@ -33,6 +33,13 @@ public interface StudentService {
      * @return
      */
     List<Student>  findAll();
+
+    /**
+     * 保存
+     * @param student
+     * @return
+     */
+    Student save(Student student);
 
 
 }

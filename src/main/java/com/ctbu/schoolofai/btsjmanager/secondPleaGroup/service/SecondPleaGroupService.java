@@ -12,5 +12,12 @@ public class SecondPleaGroupService {
 
      public SecondPleaGroup findById(String id){
          return  secondPleaGroupDao.getOne(id);
+
      }
+
+     public  SecondPleaGroup save(SecondPleaGroup secondPleaGroup){
+
+         return  secondPleaGroupDao.save(secondPleaGroup);
+     }
+
 }

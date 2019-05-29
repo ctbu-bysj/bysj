@@ -57,6 +57,15 @@ public class Grade {
     private  String paperFinalizeOpinion;
 
     /**
+     * 二次答辩定稿成绩
+     */
+    private String secindPaperFinalizeGrade;
+    /**
+     * 二次答辩定稿意见
+     */
+    private  String secondPaperFinalizeOpinion;
+
+    /**
      * 一次答辩成绩
      */
     private String  firstReplyGrade;
@@ -82,4 +91,13 @@ public class Grade {
      * 最终答辩意见
      */
     private  String  finalReplyOpinion;
+    /**
+     * 查重率
+     */
+    private  String  recheckRate;
+    /**
+     * 论文格式
+     */
+     private  String paperFormat;
+
 }

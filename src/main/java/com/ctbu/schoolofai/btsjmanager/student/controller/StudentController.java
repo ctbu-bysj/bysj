@@ -1,4 +1,4 @@
-package com.ctbu.schoolofai.btsjmanager.stunent.controller;
+package com.ctbu.schoolofai.btsjmanager.student.controller;
 
 import com.ctbu.schoolofai.btsjmanager.firstDraft.service.FirstDraftService;
 import com.ctbu.schoolofai.btsjmanager.grade.service.GradeService;
@@ -9,7 +9,7 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.*;
 import com.ctbu.schoolofai.btsjmanager.secondPaperFinalize.service.SecondPaperFinalizeService;
 
 import com.ctbu.schoolofai.btsjmanager.secondPleaGroup.service.SecondPleaGroupService;
-import com.ctbu.schoolofai.btsjmanager.stunent.service.StudentService;
+import com.ctbu.schoolofai.btsjmanager.student.service.StudentService;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.CollegeProgressService;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;

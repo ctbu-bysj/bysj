@@ -3,7 +3,7 @@ package com.ctbu.schoolofai.btsjmanager.openingReport.service;
 import com.ctbu.schoolofai.btsjmanager.openingReport.dao.OpeningReportDao;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.OpeingReport;
-import com.ctbu.schoolofai.btsjmanager.stunent.dao.StudentDao;
+import com.ctbu.schoolofai.btsjmanager.student.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class OpeningReportServiceImpl implements OpingReportService {

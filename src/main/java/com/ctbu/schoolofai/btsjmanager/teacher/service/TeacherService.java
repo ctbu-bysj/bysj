@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.teacher.service;
 
 
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Role;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
 import com.ctbu.schoolofai.btsjmanager.teacher.dao.TeacherDao;
 import org.springframework.stereotype.Service;
@@ -96,5 +97,33 @@ public class TeacherService
    public Teacher findById(String id){
         return teacherDao.getOne(id);
    }
+
+    /**
+     * 添加教师
+     * @param teacher
+     * @return
+     */
+   public  Teacher save(Teacher teacher){
+
+       return  teacherDao.save(teacher);
+   }
+
+    /**
+     * 通过身份查找
+     * @param status
+     * @return
+     */
+   public  List<Teacher> findBySystemStatus(String status){
+       return  teacherDao.findBySystemStatus(status);
+   }
+
+    /**
+     * 通过角色查找
+     * @param role
+     * @return
+     */
+    public  List<Teacher> findByRole(Role role){
+       return  teacherDao.findByRoles(role);
+    }
 
 }

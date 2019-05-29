@@ -6,10 +6,9 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.OpeingReport;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
-import com.ctbu.schoolofai.btsjmanager.stunent.service.StudentService;
+import com.ctbu.schoolofai.btsjmanager.student.service.StudentService;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;
-import org.hibernate.annotations.Source;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

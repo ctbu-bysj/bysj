@@ -57,4 +57,24 @@ public class TopicService {
         return  topicDao.findAll();
     }
 
+
+    /**
+     * 保存,更新,提交题目
+     * @param topic
+     */
+    public Topic saveOrUpdateOrSubmitTopic(Topic topic)
+    {
+        return topicDao.save(topic);
+    }
+
+    /**
+     * 查询教师出题的信息
+     * @param loginName
+     * @return
+     */
+    public List<Topic> findByCreator(String loginName)
+    {
+        return topicDao.findByCreator(loginName);
+    }
+
 }

@@ -12,7 +12,8 @@ import javax.persistence.Id;
  */
 @Data
 @Entity(name = "topicType")
-public class TopicType {
+public class TopicType
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  String id;

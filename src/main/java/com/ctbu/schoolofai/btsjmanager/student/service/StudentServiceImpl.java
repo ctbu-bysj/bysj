@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StudentServiceImpl implements  StudentService {
+public class StudentServiceImpl implements  StudentService
+{
 
     @Autowired
     private StudentDao studentDao;
 
-    public String  update(Student student){
+    public String  update(Student student)
+    {
 
         Student student1= studentDao.save(student);
 

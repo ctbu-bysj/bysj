@@ -10,7 +10,6 @@ import com.ctbu.schoolofai.btsjmanager.secondPaperFinalize.service.SecondPaperFi
 
 import com.ctbu.schoolofai.btsjmanager.secondPleaGroup.service.SecondPleaGroupService;
 import com.ctbu.schoolofai.btsjmanager.student.service.StudentService;
-import com.ctbu.schoolofai.btsjmanager.teacher.service.CollegeProgressService;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;

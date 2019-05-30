@@ -17,12 +17,14 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class StudentServiceImpl implements  StudentService {
+public class StudentServiceImpl implements  StudentService
+{
 
     @Autowired
     private StudentDao studentDao;
 
-    public String  update(Student student){
+    public String  update(Student student)
+    {
 
         Student student1= studentDao.save(student);
 

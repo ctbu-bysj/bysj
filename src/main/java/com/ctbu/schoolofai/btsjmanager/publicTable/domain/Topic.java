@@ -109,10 +109,13 @@ public class Topic
      * 预期成果
      */
     private  String expected;
+
     /**
-     * 题目状态
+     * 题目提交状态   1.未提交  2.已提交
      */
     private  String state;
+
+
     @OneToMany(mappedBy = "topic")
     private Set<Student> students=new HashSet<Student>();
 

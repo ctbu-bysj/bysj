@@ -20,4 +20,11 @@ public interface TopicDao extends JpaRepository<Topic,String> {
      * @return
      */
     List<Topic>  findByState(String sta);
+
+    /**
+     * 根据教师 查询教师所有出的题目
+     * @param creater
+     * @return
+     */
+    List<Topic>   findByCreator(String creater);
 }

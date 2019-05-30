@@ -23,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -650,6 +651,25 @@ public class TeacherAdministratorController {
     public  String addStudentTeacherAdmin(Student student){
         studentService.save(student);
         return "";
+    }
+
+    /**
+     * 毕业生管理 批量添加
+     * @param file
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/batchAddStudentTeacherAdmin")
+    public  String batchAddStudentTeacherAdmin(MultipartFile file,Model model) throws Exception{
+
+       boolean flag=studentService.getStudent(file);
+        if(flag){
+            model.addAttribute("flag","导入成功");
+        }
+        else
+        {model.addAttribute("flag","导入失败");}
+        return  "";
     }
 
     /**

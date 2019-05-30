@@ -14,6 +14,8 @@ import com.ctbu.schoolofai.btsjmanager.teacher.service.CollegeProgressService;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +24,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.*;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class StudentController {
@@ -420,5 +427,93 @@ public class StudentController {
 
         return "";
 
+    }
+
+    /*******************文档导出*******************/
+    /**
+     * 封面导出
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/faceExportStudent")
+    public  String  faceExportStudent(HttpServletRequest request,HttpServletResponse response) throws  Exception{
+        HttpSession session=request.getSession();
+        Student student=(Student) session.getAttribute("loginStudent");
+        File temFile;
+        String  expotFile;
+        Resource resource=new ClassPathResource("document/face.docx");
+        temFile=resource.getFile();
+
+
+        Map<String,String> map=new HashMap<String, String>();
+         Student studentnew =studentService.findById(student.getStudentId());
+         Teacher teacher=teacherService.findById(studentnew.getTopic().getCreator());
+
+         Resource resourceEx=new ClassPathResource("document");
+         String ex=resourceEx.getFile().getPath();
+        expotFile=ex+studentnew.getStudnetName()+"face.docx";
+
+         map.put("topic",studentnew.getTopic().getTopic());
+         map.put("class",studentnew.getClasses());
+         map.put("student",studentnew.getStudnetName());
+         map.put("login",studentnew.getLoginName());
+         map.put("teach",teacher.getTrueName());
+         map.put("title",teacher.getIdentity());
+         map.put("date",new Date().toString());
+
+        studentService.exportDucment(temFile,map,expotFile);
+        download(response,expotFile,studentnew.getStudnetName()+"face.docx");
+        return "";
+    }
+
+
+    /**
+     * 文件下载
+     * @param response
+     * @param path
+     * @param fielName
+     * @return
+     */
+    public  String download(HttpServletResponse response,String path,String fielName){
+
+        File file=new File(path);
+        if(file.exists()){
+            response.setContentType("application/force-download");//强制下载不打开
+            response.addHeader("Content-Disposition","attachment;fileName="+fielName);
+            byte[] buffer=new byte[1024];
+            FileInputStream fis=null;
+            BufferedInputStream bis=null;
+            try {
+                fis=new FileInputStream(file);
+                bis=new BufferedInputStream(fis);
+                OutputStream outputStream=response.getOutputStream();
+                int i=bis.read(buffer);
+                while (i!=-1){
+                    outputStream.write(buffer,0,i);
+                    i=bis.read(buffer);
+                }
+                return  "下载成功";
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                if(bis!=null){
+                    try {
+                        bis.close();
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+                if (fis!=null){
+                    try {
+                        fis.close();
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return  "下载失败";
     }
 }

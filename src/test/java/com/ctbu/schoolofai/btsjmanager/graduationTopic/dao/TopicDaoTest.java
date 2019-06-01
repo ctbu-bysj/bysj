@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.graduationTopic.dao;
 
-import com.ctbu.schoolofai.btsjmanager.graduationTopic.domain.Topic;
+
+import com.ctbu.schoolofai.btsjmanager.topic.dao.TopicDao;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +20,6 @@ public class TopicDaoTest{
     @Test
     public void findAllByState() {
 
-        System.out.print(topicDao.findAllByState("1"));
+        System.out.print( "");
     }
 }

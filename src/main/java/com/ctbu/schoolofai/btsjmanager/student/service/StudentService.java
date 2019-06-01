@@ -29,13 +29,13 @@ public interface StudentService {
      * @param topic
      * @return
      */
-  //  List<Student>  findByTopic(Topic topic);
+   List<Student>  findByTopic(Topic topic);
 
     /**
      * 查找所有
      * @return
      */
-   // List<Student>  findAll();
+    List<Student>  findAll();
 
     /**
      * 保存

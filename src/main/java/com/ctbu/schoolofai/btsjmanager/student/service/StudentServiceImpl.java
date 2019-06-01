@@ -1,6 +1,7 @@
 package com.ctbu.schoolofai.btsjmanager.student.service;
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
 import com.ctbu.schoolofai.btsjmanager.student.dao.StudentDao;
 
 
@@ -25,6 +26,16 @@ public class StudentServiceImpl implements  StudentService
     @Autowired
     private StudentDao studentDao;
 
+    @Override
+    public List<Student> findByTopic(Topic topic) {
+        return null;
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return null;
+    }
+
     public String  update(Student student)
     {
 
@@ -38,7 +49,7 @@ public class StudentServiceImpl implements  StudentService
     }
 
     @Override
-    public Student findById(String id) {
+    public Student findById(long id) {
         return studentDao.getOne(id);
     }
 

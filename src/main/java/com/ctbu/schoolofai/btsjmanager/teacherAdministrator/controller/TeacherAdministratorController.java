@@ -40,8 +40,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder.logger;
-
 @Controller
 public class TeacherAdministratorController {
 

@@ -18,5 +18,5 @@ public interface OpingReportService {
      * @param student
      * @return
      */
-
+    OpeingReport  findByStudent(Student student);
 }

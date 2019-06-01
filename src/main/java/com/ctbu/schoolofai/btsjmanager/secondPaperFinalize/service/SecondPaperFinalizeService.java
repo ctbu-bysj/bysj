@@ -25,7 +25,7 @@ public class SecondPaperFinalizeService {
      * @param id
      * @return
      */
-  public  SecondPaperFinalize findById(String id){
+  public  SecondPaperFinalize findById(long id){
       return  secondPaperFinalizeDao.getOne(id);
   }
 

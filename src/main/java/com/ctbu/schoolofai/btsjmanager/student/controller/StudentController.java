@@ -120,7 +120,7 @@ public class StudentController {
      * @return
      */
     @RequestMapping("/selectTopic/{id}")
-    public  String selectTopic(@PathVariable("id") String id, Model model, HttpServletRequest request){
+    public  String selectTopic(@PathVariable("id") long id, Model model, HttpServletRequest request){
 
        Topic topic= topicService.findTopicById(id);
         topic.setState("true");

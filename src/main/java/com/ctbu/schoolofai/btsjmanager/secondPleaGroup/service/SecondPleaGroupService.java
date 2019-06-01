@@ -10,7 +10,7 @@ public class SecondPleaGroupService {
     @Autowired
     private SecondPleaGroupDao secondPleaGroupDao;
 
-     public SecondPleaGroup findById(String id){
+     public SecondPleaGroup findById(long id){
          return  secondPleaGroupDao.getOne(id);
 
      }

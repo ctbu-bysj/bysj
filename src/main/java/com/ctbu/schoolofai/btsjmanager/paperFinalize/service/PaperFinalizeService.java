@@ -24,7 +24,7 @@ public class PaperFinalizeService {
      * @param id
      * @return
      */
-  public  PaperFinalize findById(String id){
+  public  PaperFinalize findById(long id){
       return  paperFinalizeDao.getOne(id);
   }
 

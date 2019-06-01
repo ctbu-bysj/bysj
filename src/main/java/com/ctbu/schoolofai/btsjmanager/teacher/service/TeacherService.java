@@ -94,7 +94,7 @@ public class TeacherService
      * @param id
      * @return
      */
-   public Teacher findById(String id){
+   public Teacher findById(long id){
         return teacherDao.getOne(id);
    }
 

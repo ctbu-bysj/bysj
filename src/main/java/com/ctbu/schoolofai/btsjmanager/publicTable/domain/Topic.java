@@ -37,7 +37,7 @@ public class Topic
     /**
      * 出题教师   外键
      */
-    private String	creator	;
+    private long	creator	;
 
     /**
      * 创建时间

@@ -4,6 +4,7 @@ import com.ctbu.schoolofai.btsjmanager.collegeProgress.service.CollegeProgressSe
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
+import com.ctbu.schoolofai.btsjmanager.student.service.StudentService;
 import com.ctbu.schoolofai.btsjmanager.student.service.StudentServiceImpl;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;
@@ -26,7 +27,7 @@ public class TeacherController
     @Resource
     private TopicService topicService;
     @Resource
-    private StudentServiceImpl studentService;
+    private StudentService studentService;
 
     /**
      * 教师首页

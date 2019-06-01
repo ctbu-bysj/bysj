@@ -17,7 +17,7 @@ public class CollegeProgress
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private  String  id;
+    private  long  id;
 
     /**
      * 阶段名称

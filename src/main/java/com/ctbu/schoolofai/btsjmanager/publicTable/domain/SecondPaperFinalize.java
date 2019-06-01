@@ -17,7 +17,7 @@ public class SecondPaperFinalize {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private  String secondPaperFinalizeId;
+    private  long secondPaperFinalizeId;
     /**
      * 论文地址
      */

@@ -5,8 +5,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 课题表
@@ -22,7 +20,8 @@ public class Topic
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String Id	;
+    @Column(name = "id" ,length = 20)
+    private long Id	;
 
     /**
      * 题目
@@ -116,7 +115,5 @@ public class Topic
     private  String state;
 
 
-    @OneToMany(mappedBy = "topic")
-    private Set<Student> students=new HashSet<Student>();
 
 }

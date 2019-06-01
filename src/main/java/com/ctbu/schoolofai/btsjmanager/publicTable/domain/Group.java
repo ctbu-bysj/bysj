@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @Entity
@@ -13,7 +11,8 @@ import java.util.Set;
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String groupId;
+    @Column(name = "id" ,length = 20)
+    private long groupId;
     /**
      * 小组名
      */
@@ -31,15 +30,5 @@ public class Group {
      */
     private  String address;
 
-    /**
-     * 小组中的学生
-     */
-    @OneToMany(mappedBy = "group")
-    private Set<Student> students=new HashSet<Student>();
 
-    /**
-     * 小组中的老师
-     */
-    @OneToMany(mappedBy = "group")
-    private Set<Teacher> teachers=new HashSet<Teacher>();
 }

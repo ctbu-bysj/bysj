@@ -1,5 +1,6 @@
 package com.ctbu.schoolofai.btsjmanager.student.controller;
 
+import com.ctbu.schoolofai.btsjmanager.collegeProgress.service.CollegeProgressService;
 import com.ctbu.schoolofai.btsjmanager.firstDraft.service.FirstDraftService;
 import com.ctbu.schoolofai.btsjmanager.grade.service.GradeService;
 import com.ctbu.schoolofai.btsjmanager.group.service.GroupService;
@@ -54,7 +55,7 @@ public class StudentController {
     @Autowired
     private SecondPleaGroupService secondPleaGroupService;
     @Autowired
-    private CollegeProgressService collegeProgressService;
+    private CollegeProgressService  collegeProgressService;
 
     /**
      * 学生系统首页

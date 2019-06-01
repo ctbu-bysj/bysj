@@ -2,10 +2,7 @@ package com.ctbu.schoolofai.btsjmanager.publicTable.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * 软件开发技术表
@@ -15,7 +12,8 @@ import javax.persistence.Id;
 public class SoftwareTechnology {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  String id;
+    @Column(name = "id" ,length = 20)
+    private  long id;
     /**
      * 技术名字
      */

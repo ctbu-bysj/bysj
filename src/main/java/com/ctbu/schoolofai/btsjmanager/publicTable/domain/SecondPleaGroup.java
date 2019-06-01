@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 二次答辩小组
@@ -16,7 +14,8 @@ import java.util.Set;
 public class SecondPleaGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String groupId;
+    @Column(name = "id" ,length = 20)
+    private long groupId;
     /**
      * 小组名
      */
@@ -34,15 +33,5 @@ public class SecondPleaGroup {
      */
     private  String address;
 
-    /**
-     * 小组中的学生
-     */
-    @OneToMany(mappedBy = "secondPleaGroup")
-    private Set<Student> students=new HashSet<Student>();
 
-    /**
-     * 小组中的老师
-     */
-    @OneToMany(mappedBy = "secondPleaGroup")
-    private Set<Teacher> teachers=new HashSet<Teacher>();
 }

@@ -5,7 +5,7 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface CollegeProgressDao extends JpaRepository<CollegeProgress,String> {
+public interface CollegeProgressDao extends JpaRepository<CollegeProgress,Long> {
 
 
 }

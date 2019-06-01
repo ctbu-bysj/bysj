@@ -6,6 +6,9 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.OpeingReport;
 import com.ctbu.schoolofai.btsjmanager.student.dao.StudentDao;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static java.sql.Types.NULL;
+
+
 public class OpeningReportServiceImpl implements OpingReportService {
    @Autowired
    private  OpeningReportDao openingReportDao;
@@ -17,14 +20,14 @@ public class OpeningReportServiceImpl implements OpingReportService {
 
           OpeingReport opeing= openingReportDao.save(opeingReport);
 
-          if(opeing.getOpeningId()!=null)
+          if(opeing.getOpeningId()!=NULL)
               return "succsse";
           else return null;
 
     }
 
     @Override
-    public OpeingReport findByStudentId(String id) {
+    public OpeingReport findByStudentId(long id) {
         return openingReportDao.findOpeingReportByStudent(id);
     }
 }

@@ -11,7 +11,8 @@ public class OpeingReport
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  String openingId;
+    @Column(name = "id" ,length = 20)
+    private  long openingId;
     private  String  topicBasis;//立题依据
     private  String  researchContent;//研究主要内容
     private  String  DevelopmentTechnology;//开发技术

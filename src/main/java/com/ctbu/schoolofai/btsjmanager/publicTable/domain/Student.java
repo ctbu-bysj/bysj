@@ -13,7 +13,8 @@ public class Student {
       */
       @Id
       @GeneratedValue(strategy = GenerationType.AUTO)
-     private  String studentId;
+      @Column(name = "id" ,length = 20)
+     private  long studentId;
      /**
       * 登录名
       */
@@ -80,33 +81,33 @@ public class Student {
      /**
       * 学生成绩
       */
-     @OneToOne(cascade=CascadeType.ALL)//People是关系的维护端，当删除 people，会级联删除 address
-     @JoinColumn(name = "grade_id", referencedColumnName = "gradeId")//people中的address_id字段参考address表中的id字段
+     @OneToOne(cascade=CascadeType.ALL,targetEntity = Grade.class)//People是关系的维护端，当删除 people，会级联删除 address
+     @JoinColumn(name = "grade_id", referencedColumnName = "id")//people中的address_id字段参考address表中的id字段
      private Grade grade;//地址
      /**
       * 初稿
       */
-     @OneToOne(cascade=CascadeType.ALL)//People是关系的维护端，当删除 people，会级联删除 address
-     @JoinColumn(name = "firstDraft_id", referencedColumnName = "firstDraftId")//people中的address_id字段参考address表中的id字段
+     @OneToOne(cascade=CascadeType.ALL,targetEntity = FirstDraft.class)//People是关系的维护端，当删除 people，会级联删除 address
+     @JoinColumn(name = "firstDraft_id", referencedColumnName = "id")//people中的address_id字段参考address表中的id字段
      private FirstDraft firstDraft;//
      /**
       * 中期检查
       */
      @OneToOne(cascade=CascadeType.ALL)//People是关系的维护端，当删除 people，会级联删除 address
-     @JoinColumn(name = "midCheck_id", referencedColumnName = " midCheckId")//people中的address_id字段参考address表中的id字段
+     @JoinColumn(name = "midCheck_id", referencedColumnName = "id")//people中的address_id字段参考address表中的id字段
      private MidCheck midCheck;//地址
 
      /**
       * 一次答辩定稿
       */
      @OneToOne(cascade=CascadeType.ALL)//People是关系的维护端，当删除 people，会级联删除 address
-     @JoinColumn(name = "paperFinalize_id", referencedColumnName = "paperFinalizeId")//people中的address_id字段参考address表中的id字段
+     @JoinColumn(name = "paperFinalize_id", referencedColumnName = "id")//people中的address_id字段参考address表中的id字段
      private PaperFinalize paperFinalize;//地址
 
      /**
       * 二次答辩定稿
       */
      @OneToOne(cascade=CascadeType.ALL)//People是关系的维护端，当删除 people，会级联删除 address
-     @JoinColumn(name = "secondPaperFinalize_id", referencedColumnName = "secondPaperFinalizeId")//people中的address_id字段参考address表中的id字段
+     @JoinColumn(name = "secondPaperFinalize_id", referencedColumnName = "id")//people中的address_id字段参考address表中的id字段
      private SecondPaperFinalize secondPaperFinalize;//地址
 }

@@ -4,6 +4,6 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface GroupDao extends JpaRepository<Group,String> {
+public interface GroupDao extends JpaRepository<Group,Long> {
 
 }

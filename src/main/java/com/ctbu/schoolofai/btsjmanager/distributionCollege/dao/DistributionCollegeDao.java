@@ -5,7 +5,7 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface DistributionCollegeDao extends JpaRepository<DistributionCollege,String> {
+public interface DistributionCollegeDao extends JpaRepository<DistributionCollege,Long> {
 
 
 }

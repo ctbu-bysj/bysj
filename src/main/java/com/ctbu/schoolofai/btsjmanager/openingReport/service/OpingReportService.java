@@ -11,12 +11,12 @@ public interface OpingReportService {
      */
      String save(OpeingReport opeingReport);
 
-    OpeingReport  findByStudentId(String id);
+    OpeingReport  findByStudentId(long id);
 
     /**
      * 通过学生查找
      * @param student
      * @return
      */
-    OpeingReport  findByStudent(Student student);
+
 }

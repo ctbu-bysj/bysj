@@ -16,7 +16,7 @@ public class FirstDraftServiceImpl implements FirstDraftService {
     }
 
     @Override
-    public FirstDraft findById(String id) {
+    public FirstDraft findById(long id) {
         return firstDraftDao.getOne(id);
     }
 }

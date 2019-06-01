@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 
-public interface StudentDao extends JpaRepository<Student,String> {
+public interface StudentDao extends JpaRepository<Student,Long> {
     /**
      * 通过选题查找
      * @param topic

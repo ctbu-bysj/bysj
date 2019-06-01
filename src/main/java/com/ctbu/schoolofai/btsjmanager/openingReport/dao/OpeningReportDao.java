@@ -5,9 +5,9 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.OpeingReport;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OpeningReportDao extends JpaRepository<OpeingReport,String> {
+public interface OpeningReportDao extends JpaRepository<OpeingReport,Long> {
 
-    OpeingReport findOpeingReportByStudent(String id);
+    OpeingReport findOpeingReportByStudent(long id);
 
     /**
      * 通过学生查找

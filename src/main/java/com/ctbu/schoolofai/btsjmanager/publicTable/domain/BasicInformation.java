@@ -3,8 +3,6 @@ package com.ctbu.schoolofai.btsjmanager.publicTable.domain;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 毕业设计工作表
@@ -20,7 +18,7 @@ public class BasicInformation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private  String  id;
+    private  long  id;
     /**
      * 毕业生年份
      */
@@ -42,10 +40,5 @@ public class BasicInformation {
      */
     private boolean collegePro;
 
-    /**
-     * 小组中的学生
-     */
-    @OneToMany(mappedBy = "basicInformation")
-    private Set<CollegeProgress> students=new HashSet<CollegeProgress>();
 
 }

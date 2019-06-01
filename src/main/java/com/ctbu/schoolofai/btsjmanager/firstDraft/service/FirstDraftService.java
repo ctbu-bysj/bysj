@@ -16,5 +16,5 @@ public interface FirstDraftService {
      * @param id
      * @return
      */
-   FirstDraft findById(String id);
+   FirstDraft findById(long id);
 }

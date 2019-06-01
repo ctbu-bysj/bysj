@@ -17,7 +17,7 @@ public class DistributionCollege {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private String  id;
+    private long  id;
     /**
      * 所属学科
      */

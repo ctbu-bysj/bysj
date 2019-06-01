@@ -22,20 +22,20 @@ public interface StudentService {
      * @param id
      * @return
      */
-    Student findById(String id);
+    Student findById(long id);
 
     /**
      * 通过选题查找
      * @param topic
      * @return
      */
-    List<Student>  findByTopic(Topic topic);
+  //  List<Student>  findByTopic(Topic topic);
 
     /**
      * 查找所有
      * @return
      */
-    List<Student>  findAll();
+   // List<Student>  findAll();
 
     /**
      * 保存

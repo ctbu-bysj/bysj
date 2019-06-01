@@ -17,7 +17,7 @@ public class ProfessionalDistribution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private String  id;
+    private long  id;
 
     /**
      * 教师id，从教师表调取信息

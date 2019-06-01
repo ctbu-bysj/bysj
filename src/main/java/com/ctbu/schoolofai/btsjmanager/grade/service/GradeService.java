@@ -11,6 +11,6 @@ public interface GradeService{
      * @param id
      * @return
      */
-    Grade findById(String id);
+    Grade findById(long id);
 
 }

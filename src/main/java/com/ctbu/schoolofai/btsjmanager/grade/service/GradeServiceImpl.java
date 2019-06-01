@@ -12,7 +12,7 @@ public class GradeServiceImpl implements GradeService {
     private GradeService gradeService;
 
     @Override
-    public Grade findById(String id) {
+    public Grade findById(long id) {
         return gradeService.findById(id);
     }
 }

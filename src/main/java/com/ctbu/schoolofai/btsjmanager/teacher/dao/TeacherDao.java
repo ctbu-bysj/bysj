@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface TeacherDao extends JpaRepository<Teacher,String>
+public interface TeacherDao extends JpaRepository<Teacher,Long>
 {
     /**
      * 根据教师登录名（工号）查询该老师所有的信息

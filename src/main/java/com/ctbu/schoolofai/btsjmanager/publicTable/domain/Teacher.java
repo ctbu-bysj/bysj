@@ -20,7 +20,7 @@ public class Teacher
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private String  id;
+    private long  id;
 
     /**
      * 教师登录名（工号）
@@ -80,7 +80,7 @@ public class Teacher
      * 教师所属小组
      */
     @ManyToOne
-    @JoinColumn(name = "groupt_id")
+    @JoinColumn(name = "group_id")
     private  Group group;
 
     /**

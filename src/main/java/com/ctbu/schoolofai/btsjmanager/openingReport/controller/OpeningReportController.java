@@ -72,7 +72,7 @@ public class OpeningReportController {
      * @return
      */
     @RequestMapping(value = "/myOpen/{id}")
-    public  String myOpen(@PathVariable("id")String id, Model model){
+    public  String myOpen(@PathVariable("id")long id, Model model){
 
        OpeingReport opeingReport= opingReportService.findByStudentId(id);
        Student student=studentService.findById(id);

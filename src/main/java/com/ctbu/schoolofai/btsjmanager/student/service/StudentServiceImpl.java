@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static java.sql.Types.NULL;
+
 @Service
 public class StudentServiceImpl implements  StudentService
 {
@@ -28,7 +30,7 @@ public class StudentServiceImpl implements  StudentService
 
         Student student1= studentDao.save(student);
 
-        if (student1.getTopic().getId()!=null)
+        if (student1.getTopic().getId()!=NULL)
             return  "true";
 
          else return null;

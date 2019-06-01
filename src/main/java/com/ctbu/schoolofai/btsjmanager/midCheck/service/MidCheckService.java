@@ -1,9 +1,12 @@
 package com.ctbu.schoolofai.btsjmanager.midCheck.service;
 
+
 import com.ctbu.schoolofai.btsjmanager.midCheck.dao.MidCheckDao;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.MidCheck;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import static java.sql.Types.NULL;
 
 @Service
 public class MidCheckService {
@@ -17,12 +20,12 @@ public class MidCheckService {
      */
     public MidCheck midCheckSave(MidCheck midCheck){
          MidCheck midCheckNew= midCheckDao.save(midCheck);
-          if(midCheck.getMidCheckId()!=null)
+          if(midCheck.getMidCheckId()!=NULL)
                  return midCheckNew;
           else return null;
     }
 
-    public  MidCheck findMidCheck(String id){
+    public  MidCheck findMidCheck(long id){
        return midCheckDao.getOne(id);
     }
 }

@@ -17,7 +17,7 @@ public class FirstDraft {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private  String firstDraftId;
+    private  long firstDraftId;
     /**
      * 论文地址
      */

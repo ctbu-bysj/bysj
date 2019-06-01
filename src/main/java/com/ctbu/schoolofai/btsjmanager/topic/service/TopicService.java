@@ -16,7 +16,7 @@ public class TopicService {
      * 查找题目通过id
      * @return
      */
-    public Topic findTopicById(String id){
+    public Topic findTopicById(long id){
 
         return topicDao.getOne(id);
 

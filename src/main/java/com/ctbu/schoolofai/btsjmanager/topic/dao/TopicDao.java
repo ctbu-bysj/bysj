@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 
-public interface TopicDao extends JpaRepository<Topic,String> {
+public interface TopicDao extends JpaRepository<Topic,Long> {
     /**
      * 通过专业查找选题
      * @param pro

@@ -18,7 +18,7 @@ public class MidCheck {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private  String midCheckId;
+    private  long midCheckId;
     /**
      * t题目名字
      */

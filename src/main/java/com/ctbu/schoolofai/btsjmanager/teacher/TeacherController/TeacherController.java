@@ -53,7 +53,7 @@ public class TeacherController
     public String communicationBook(Model model)
     {
         model.addAttribute("teacher",teacherService.findAll());
-        model.addAttribute("student",studentService.findAll());
+        //model.addAttribute("student",studentService.findAll());
         return "";
     }
 
@@ -163,7 +163,7 @@ public class TeacherController
 
     public String determineTheTopic(Student student)
     {
-        student.set
+        return "";
     }
 
 }

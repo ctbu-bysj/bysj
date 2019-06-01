@@ -17,7 +17,7 @@ public interface DistributionCollegeService {
      * @param id
      * @return
      */
-    DistributionCollege findById(String id);
+    DistributionCollege findById(long id);
 
     /**
      * 更新

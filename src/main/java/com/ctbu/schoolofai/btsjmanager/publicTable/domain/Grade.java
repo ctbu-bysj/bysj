@@ -17,7 +17,7 @@ public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" ,length = 20)
-    private String  gradeId;
+    private long  gradeId;
 
     /**
      * 开题报告成绩

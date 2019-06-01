@@ -11,7 +11,7 @@ public class GroupService {
     @Autowired
     private GroupDao groupDao;
 
-    public Group findById(String id){
+    public Group findById(long id){
         groupDao.getOne(id);
         return  groupDao.getOne(id);
     }

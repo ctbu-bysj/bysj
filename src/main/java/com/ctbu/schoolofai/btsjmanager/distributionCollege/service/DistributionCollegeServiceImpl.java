@@ -19,7 +19,7 @@ public class DistributionCollegeServiceImpl implements DistributionCollegeServic
     }
 
     @Override
-    public DistributionCollege findById(String id) {
+    public DistributionCollege findById(long id) {
         return distributionCollegeDao.getOne(id);
     }
 

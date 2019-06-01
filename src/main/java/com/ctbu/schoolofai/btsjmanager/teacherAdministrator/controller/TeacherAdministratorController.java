@@ -17,17 +17,30 @@ import com.ctbu.schoolofai.btsjmanager.student.service.StudentService;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;
 import com.ctbu.schoolofai.btsjmanager.topicType.service.TopicTypeService;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder.logger;
 
 @Controller
 public class TeacherAdministratorController {
@@ -234,6 +247,126 @@ public class TeacherAdministratorController {
          model.addAttribute("topics",topics);
         return  "";
     }
+
+
+    /**
+     * 导出选题信息
+     * @param request
+     * @param response
+     */
+    @RequestMapping(value = "/export2003.do", method = RequestMethod.GET)
+    public void export2003(HttpServletRequest request, HttpServletResponse response) {
+        List<Student> list = new ArrayList<Student>();
+
+        list=studentService.findAll();
+
+
+        HSSFWorkbook wb = null;
+        try {
+            // excel模板路径
+
+            org.springframework.core.io.Resource resource=new ClassPathResource("document/xuanti.xls");
+            String excel = ((ClassPathResource) resource).getPath();
+
+            File fi = new File(excel);
+            POIFSFileSystem fs = new POIFSFileSystem(new FileInputStream(fi));
+            // 读取excel模板
+            wb = new HSSFWorkbook(fs);
+            // 读取了模板内所有sheet内容
+            HSSFSheet sheet = wb.getSheetAt(0);
+            // 在相应的单元格进行赋值
+            int rowIndex = 1;
+            for (Student student : list) {
+                HSSFRow row = sheet.getRow(rowIndex);
+                if (null == row) {
+                    row = sheet.createRow(rowIndex);
+                }
+                HSSFCell cell0 = row.getCell(0);
+                if (null == cell0) {
+                    cell0 = row.createCell(0);
+                }
+                cell0.setCellValue(student.getLoginName());//
+
+                HSSFCell cell1 = row.getCell(1);
+                if (null == cell1) {
+                    cell1 = row.createCell(1);
+                }
+                cell1.setCellValue(student.getStudnetName());//
+
+                HSSFCell cell2 = row.getCell(2);
+                if (null == cell2) {
+                    cell2 = row.createCell(2);
+                }
+                cell2.setCellValue(student.getClasses());//
+
+                HSSFCell cell3 = row.getCell(3);
+                if (null == cell3) {
+                    cell3 = row.createCell(3);
+                }
+                cell3.setCellValue(student.getTopic().getTopic());// 性
+
+                HSSFCell cell4 = row.getCell(4);
+                if (null == cell4) {
+                    cell4 = row.createCell(4);
+                }
+                cell4.setCellValue(teacherService.findById(student.getTopic().getCreator()).getLoginName());//
+
+
+                HSSFCell cell5 = row.getCell(5);
+                if (null == cell5) {
+                    cell5= row.createCell(5);
+                }
+                cell5.setCellValue(teacherService.findById(student.getTopic().getCreator()).getTrueName());//
+
+                HSSFCell cell6= row.getCell(6);
+                if (null == cell6) {
+                    cell6= row.createCell(6);
+                }
+                cell6.setCellValue(teacherService.findById(student.getTopic().getCreator()).getIdentity());//
+
+
+                rowIndex++;
+            }
+
+            String fileName = "选题信息";
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            wb.write(os);
+            byte[] content = os.toByteArray();
+            InputStream is = new ByteArrayInputStream(content);
+            // 设置response参数，可以打开下载页面
+            response.reset();
+            response.setContentType("application/vnd.ms-excel;charset=utf-8");
+            response.setHeader("Content-Disposition", "attachment;filename=" + new String((fileName + ".xls").getBytes(), "iso-8859-1"));
+            ServletOutputStream sout = response.getOutputStream();
+            BufferedInputStream bis = null;
+            BufferedOutputStream bos = null;
+
+            try {
+                bis = new BufferedInputStream(is);
+                bos = new BufferedOutputStream(sout);
+                byte[] buff = new byte[2048];
+                int bytesRead;
+                // Simple read/write loop.
+                while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
+                    bos.write(buff, 0, bytesRead);
+                }
+            } catch (Exception e) {
+                 e.printStackTrace();
+            } finally {
+                if (bis != null)
+                    bis.close();
+                if (bos != null)
+                    bos.close();
+            }
+
+        } catch (Exception e) {
+           e.printStackTrace();
+        }
+
+    }
+
+
+
 
     /**
      * 开题报告管理  开题报告列表

@@ -1,10 +1,14 @@
 package com.ctbu.schoolofai.btsjmanager.director.service;
 
-import com.ctbu.schoolofai.btsjmanager.director.dao.StudentTopicAuditDao;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
+import com.ctbu.schoolofai.btsjmanager.student.dao.StudentDao;
+import com.ctbu.schoolofai.btsjmanager.topic.dao.TopicDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -13,36 +17,46 @@ import java.util.List;
 @Service
 public class StudentTopicAuditService {
 
-    @Autowired
-    StudentTopicAuditDao studentTopicAuditDao;
+    @Resource
+    StudentDao studentDao;
 
+    @Autowired
+    TopicDao topicDao;
     /**
      * 所有学生选题信息
      * @return
      */
     public List<Student> findAll(){
-        return studentTopicAuditDao.findAll();
+        return studentDao.findAll();
     }
 
 
     /**
-     * 更新表中的审核状态和审核意见
-     * @param studentTopicDo
+     * 确定教师和学生选题双选情况
+     * @param student
      * @return
      */
-    public Student update (Student studentTopicDo){
+    public Student update (Student student,String selection){
 
-        return studentTopicAuditDao.save(studentTopicDo);
+        if(selection.equals("通过")) {
+            student.setDeterminesStatus("学科负责人已确认");
+        }
+        else {
+            student.setTopic(null);  //让学生可以重新选择题目
+            student.setDeterminesStatus("未选择");
+        }
+        return studentDao.save(student);
     }
 
     /**
-     * 通过审核情况查询选题信息，修改审核状态的时候使用
+     * 查找学生和教师都同意的选题情况
      * @param state
      * @return
      */
-    public List<Student> findByState(Short state){
+    public List<Student> findByDeterminesStatus(String state){
 
-        return studentTopicAuditDao.findByState(state);
+        List<Student> students = studentDao.findByDeterminesStatus(state);
+        return students;
     }
 
 }

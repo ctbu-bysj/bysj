@@ -49,6 +49,11 @@ public class Student {
      private Topic topic;
 
      /**
+      * 学生选题确认状态 ，未选择，已选择，教师已确认，学科负责人已确认
+      */
+     private String determinesStatus;
+
+     /**
       * 登录次数
       */
      private String loginTimes;

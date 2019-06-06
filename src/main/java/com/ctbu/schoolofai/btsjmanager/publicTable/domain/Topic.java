@@ -39,6 +39,10 @@ public class Topic
      */
     private long	creator	;
 
+    @ManyToOne(targetEntity = Teacher.class)
+    @JoinColumn(name = "teacher_id")
+    private Teacher teacher;
+
     /**
      * 创建时间
      */
@@ -47,22 +51,11 @@ public class Topic
     private Date creatorDate;
 
     /**
-     * 选择状态
+     * 选择状态  1.被选  2.已确认
      */
     @Column(name = "topic_status")
     private String  topicStatus	;
 
-    /**
-     * 总名额
-     */
-    @Column(name = "topic_quota")
-    private short  topicQuota;
-
-    /**
-     * 剩余名额
-     */
-    @Column(name = "remaining_quota")
-    private short remainingQuota;
 
     /**
      * 审核意见

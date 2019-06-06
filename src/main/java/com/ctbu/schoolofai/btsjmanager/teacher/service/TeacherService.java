@@ -2,9 +2,14 @@ package com.ctbu.schoolofai.btsjmanager.teacher.service;
 
 
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Role;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
+import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
+import com.ctbu.schoolofai.btsjmanager.student.dao.StudentDao;
 import com.ctbu.schoolofai.btsjmanager.teacher.dao.TeacherDao;
+import com.ctbu.schoolofai.btsjmanager.topic.dao.TopicDao;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,6 +20,12 @@ public class TeacherService
 
     @Resource
     private TeacherDao teacherDao;
+
+    @Resource
+    private StudentDao studentDao;
+
+    @Resource
+    private TopicDao topicDao;
 
 
     /**
@@ -124,6 +135,21 @@ public class TeacherService
      */
     public  List<Teacher> findByRole(Role role){
        return  teacherDao.findByRoles(role);
+    }
+
+    /**
+     * 确认学生选题
+     * @param student
+     * @param topic
+     * @return
+     */
+    @Transactional
+    public void  determineTheTopic(Student student, Topic topic)
+    {
+        topic.setState("已确认");
+        topicDao.save(topic);
+        student.setDeterminesStatus("教师已确认");
+        studentDao.save(student);
     }
 
 }

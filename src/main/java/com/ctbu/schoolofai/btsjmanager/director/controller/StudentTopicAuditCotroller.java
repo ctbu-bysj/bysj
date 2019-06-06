@@ -19,7 +19,8 @@ public class StudentTopicAuditCotroller {
     StudentTopicAuditService studentTopicAuditService;
 
     @RequestMapping("")
-    public String list(Model model,String id){
+    public String list(Model model,String id)
+    {
 
         //返回所有需要审核的选题信息
         List<Student> studentTopicDos = studentTopicAuditService.findAll();

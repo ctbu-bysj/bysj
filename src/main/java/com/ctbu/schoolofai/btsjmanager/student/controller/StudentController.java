@@ -106,7 +106,8 @@ public class StudentController {
      */
 
     @RequestMapping("/modifyPersonal")
-    public  void modifyPassword( Student student,HttpServletRequest request){
+    public  void modifyPassword( Student student,HttpServletRequest request)
+    {
 
             studentService.update(student);
 

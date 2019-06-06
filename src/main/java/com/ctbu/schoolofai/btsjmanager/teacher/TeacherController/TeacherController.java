@@ -5,11 +5,12 @@ import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Student;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Teacher;
 import com.ctbu.schoolofai.btsjmanager.publicTable.domain.Topic;
 import com.ctbu.schoolofai.btsjmanager.student.service.StudentService;
-import com.ctbu.schoolofai.btsjmanager.student.service.StudentServiceImpl;
 import com.ctbu.schoolofai.btsjmanager.teacher.service.TeacherService;
 import com.ctbu.schoolofai.btsjmanager.topic.service.TopicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -30,28 +31,28 @@ public class TeacherController
     private StudentService studentService;
 
     /**
-     * 教师首页
+     * 获取教师首页以及信息
      * @param httpServletRequest
      * @param model
      * @return
      */
-    @RequestMapping("/homePage")
+    @GetMapping("/homePage")
     public String  teacherSystemHome(HttpServletRequest httpServletRequest, Model model)
     {
         Teacher teacher=(Teacher)httpServletRequest.getSession().getAttribute("loginTeacher");
-        model.addAttribute("personalInformation",teacherService.findByTrueName(teacher.getTrueName()));
+        model.addAttribute("teacher",teacherService.findByTrueName(teacher.getTrueName()));
         model.addAttribute("collegeProgress",collegeProgressService.findAll());
         model.addAttribute("systemNotification","系统公告");
         return "";
     }
 
     /**
-     * 通讯录
+     * 获取教师通讯录页面以及信息
      * @param model
      * @return
      */
-    @RequestMapping("/addressBook")
-    public String communicationBook(Model model)
+    @GetMapping("/addressTeacherBook")
+    public String communicationTeacherBook(Model model)
     {
         model.addAttribute("teacher",teacherService.findAll());
         //model.addAttribute("student",studentService.findAll());
@@ -59,26 +60,53 @@ public class TeacherController
     }
 
     /**
-     * 个人信息
-     * @param httpServletRequest
+     * 获取学生通讯录页面以及信息
      * @param model
      * @return
      */
-    @RequestMapping("/personalInformation")
-    public String  myInformation(HttpServletRequest httpServletRequest, Model model)
+    @GetMapping("/addressStudentBook")
+    public String communicationStudentBook(Model model)
     {
-        Teacher teacher=(Teacher) httpServletRequest.getSession().getAttribute("loginTeacher");
-        model.addAttribute("personalInformation",teacherService.findByTrueName(teacher.getLoginName()));
+        model.addAttribute("student",studentService.findAll());
         return "";
     }
 
     /**
-     * 教师出题状态(题目信息 以及题目数量)-管理科学与工程学科
+     * 获取教师个人信息页面以及个人信息
+     * @param httpServletRequest
+     * @param model
+     * @return
+     */
+    @GetMapping ("/personalInformation")
+    public String  myInformation(HttpServletRequest httpServletRequest, Model model)
+    {
+        Teacher teacher=(Teacher) httpServletRequest.getSession().getAttribute("loginTeacher");
+        model.addAttribute("teacher",teacherService.findByTrueName(teacher.getLoginName()));
+        return "";
+    }
+
+    /**
+     * 教师修改个人信息
+     * @param teacher
+     * @param model
+     */
+    @PostMapping("/updateInformation")
+    public Model updateInformation(Teacher teacher,Model model)
+    {
+            teacherService.save(teacher);
+            model.addAttribute("teacher",teacher);
+            model.addAttribute("model","修改成功");
+            return model;
+    }
+
+
+    /**
+     * 获取教师出题状态(题目信息 以及题目数量)-管理科学与工程学科  页面以及数据
      * @param request
      * @param model
      * @return
      */
-    @RequestMapping("/stateOfIssue")
+    @GetMapping("/stateOfIssue")
     public String stateOfIssue(HttpServletRequest request,Model model)
     {
         Teacher teacher=(Teacher) request.getSession().getAttribute("loginTeacher");
@@ -89,31 +117,31 @@ public class TeacherController
     }
 
     /**
-     * 添加毕业毕业设计题目
-     * @param request
+     * 获取教师添加题目页面
      * @param model
      * @return
      */
-    @RequestMapping("/addTopic")
-    public String addTopic(HttpServletRequest request,Model model)
+    @GetMapping("/addTopic")
+    public String addTopic(Model model)
     {
+        Topic topic =new Topic();
+        model.addAttribute("topic",topic);
         return "";
     }
 
     /**
      * 保存题目
-     * @param request
+     * @param topic
      * @param model
      * @return
      */
-    @RequestMapping("/saveTopic")
-    public  String saveTopic(HttpServletRequest request,Model model)
+    @PostMapping("/saveTopic")
+    public  Model saveTopic(Topic topic,Model model)
     {
-        Topic topic =new Topic();
         topic.setState("已保存");
         topic=topicService.saveOrUpdateOrSubmitTopic(topic);
-        model.addAttribute("topic",topic);
-        return "";
+        model.addAttribute("result","保存成功");
+        return model;
     }
 
     /**
@@ -122,23 +150,23 @@ public class TeacherController
      * @param model
      * @return
      */
-    @RequestMapping("/submitTopic")
-    public  String submitTopic(HttpServletRequest request,Model model)
+    @PostMapping("/submitTopic")
+    public  Model submitTopic(Topic topic,Model model)
     {
-        Topic topic =new Topic();
         topic.setState("已提交");
         topic=topicService.saveOrUpdateOrSubmitTopic(topic);
         model.addAttribute("topic",topic);
-        return "";
+        model.addAttribute("result","提交成功");
+        return model;
     }
 
 
     /**
-     * 毕业生选题情况
+     * 获取毕业生选题情况页面以及数据
      * @param request
      * @return
      */
-    @RequestMapping("/graduateSelection")
+    @GetMapping("/graduateSelection")
     public  String  graduateSelection(HttpServletRequest request,Model model)
     {
         Teacher teacher=(Teacher) request.getSession().getAttribute("loginTeacher");
@@ -149,23 +177,32 @@ public class TeacherController
 
     /**
      * 查询 所有选择该题的学生
-     * @param request
-     * @param model
      * @param topic
+     * @param model
      * @return
      */
-    @RequestMapping("viewSelectedStudents")
-    public String viewSelectedStudents(HttpServletRequest request,Model model,Topic topic)
+    @GetMapping("/viewSelectedStudents")
+    public Model viewSelectedStudents(Topic topic,Model model)
     {
         List<Student> students = studentService.findByTopic(topic);
         model.addAttribute("students",students);
-        return "";
+        return model;
     }
 
-    public String determineTheTopic(Student student)
+    /**
+     * 确认学生选题
+     * @param student
+     * @param topic
+     * @return
+     */
+    @PostMapping("/determineTheTopic")
+    public String determineTheTopic( Student student,Topic topic)
     {
-        return "";
+        teacherService.determineTheTopic(student,topic);
+        return "确认成功";
     }
+
+
 
 }
 
